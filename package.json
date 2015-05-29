@@ -1,0 +1,33 @@
+{
+  "name": "mongo-push",
+  "version": "1.0.0",
+  "description": "Push the changes from one Mongodb collection to another.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onlinebydesign/mongo-push.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "sync",
+    "push",
+    "update"
+  ],
+  "author": "Online By Design LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onlinebydesign/mongo-push/issues"
+  },
+  "homepage": "https://github.com/onlinebydesign/mongo-push",
+  "dependencies": {
+    "async": "^1.0.0",
+    "moment": "^2.10.3",
+    "mongodb": "^2.0.33"
+  }
+}
