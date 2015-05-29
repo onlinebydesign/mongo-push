@@ -1,5 +1,7 @@
 # mongo-push
-Push the changes from one Mongodb collection to another. 
+Push the changes from one Mongodb collection to another.
+
+Currently we don't support removing documents.
 
 ## Installation
 ###### To be implemented
@@ -18,8 +20,9 @@ var mongoPush = require('mongo-push')();
 mongoPush({
     src: 'mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]',
     dst: 'mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]'
-} function (err) {
-    if (err) console.error(err);
+} function (err, results) {
+    if (err) return console.error(err);
+    console.log(results);
 });
 
 // Copies changes from the src database to the dst database for the 'test' collection. 
@@ -29,14 +32,19 @@ mongoPush({
     dst: 'mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]',
     collections: ['test']
 } function (err) {
-    if (err) console.error(err);
+    if (err) return console.error(err);
+    console.log(results);
 });
 ```
 
 ### Available Options
 ```
 // Global options 
-{}
+{
+    tolerance: [0] seconds to go back from last sync,
+    comperator: [_u] the field to use to compare documents,
+    ensureComperator: [true] creates comperator if it is missing in source, 
+}
 
 // Per run options
 {}
